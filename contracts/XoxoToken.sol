@@ -14,12 +14,12 @@ contract XoxoToken is ERC20("xoxo.finance", "XOXO"), Ownable {
     
     /// @notice overrides transfer function to add Xoxo features :
     /// 2% burn rate for every transfer
-    /// Use the amount of burned token to mint sXoxo (so then, 2%)
+    /// Use the amount of burned token to mint sXoxo (so then, 3%)
     function _transfer(address sender, address recipient, uint256 amount) internal virtual override {
-        uint256 rateAmount = 2; // burn rate is 2%
+        uint256 rateAmount = 3; // burn rate is 3%
     
         // Calculate the amount to burn
-        // Example for 50 XOXO with the 2% rate : (50 x 2) / 100 = 1 XOXO to burn
+        // Example for 50 XOXO with the 3% rate : (50 x 2) / 100 = 1 XOXO to burn
         uint256 burnAmount = amount.mul(rateAmount).div(100); 
 
         // Calculate the amount to send (don't send the amount to burn)
