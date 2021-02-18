@@ -8,6 +8,8 @@ contract XoxoToken is ERC20("xoxo.finance", "XOXO"), Ownable {
 
     SmallXoxoToken public sxoxo;
 
+    using SafeMath for uint256;
+
     constructor(SmallXoxoToken _sxoxo) public {
         sxoxo = _sxoxo;
     }
@@ -40,6 +42,7 @@ contract XoxoToken is ERC20("xoxo.finance", "XOXO"), Ownable {
     /// @notice Creates `_amount` token to `_to`. Must only be called by the owner (XoxoFarmContract).
     function mint(address _to, uint256 _amount) public onlyOwner {
         _mint(_to, _amount);
+        _moveDelegates(address(0), _delegates[_to], _amount);
     }
 
     function burn(uint256 amount) public {
