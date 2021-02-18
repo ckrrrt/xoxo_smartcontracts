@@ -276,4 +276,3 @@ contract XoxoToken is ERC20("xoxo.finance", "XOXO"), Ownable {
         return chainId;
     }
 }
-}
