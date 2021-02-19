@@ -70,7 +70,7 @@ contract XoxoFarm is Ownable {
         uint256 _startBlock,
         uint256 _bonusEndBlock
     ) public {
-        _xoxo = _xoxo;
+        xoxo = _xoxo;
         devAddr = _devAddr;
         xoxoPerBlock = _xoxoPerBlock;
         bonusEndBlock = _bonusEndBlock;
